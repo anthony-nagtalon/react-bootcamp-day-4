@@ -24,7 +24,10 @@ function Topics( { match } ) {
 
             <hr />
 
-            <Route path='/topics/:topicId' component={Topic} />
+            <Route path={`${match.path}/:topicId`} component={Topic} />
+            <Route exact path={match.patch} render={() => {
+                return <h3>Please select a topic</h3>
+            }} />
         </div>
     )
 }

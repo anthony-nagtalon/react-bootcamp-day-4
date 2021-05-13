@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 
-function Topic() {
-    return <h3>TOPIC</h3>
+function Topic({ match }) {
+    return <h3>{match.params.topicId}</h3>
 }
 
 function Topics() {
@@ -12,21 +12,19 @@ function Topics() {
 
             <ul>
                 <li>
-                    <Link to=''>Rendering with React</Link>
+                    <Link to='/topics/rendering'>Rendering with React</Link>
                 </li>
                 <li>
-                    <Link to=''>Components</Link>
+                    <Link to='/topics/components'>Components</Link>
                 </li>
                 <li>
-                    <Link to=''>Props vs State</Link>
+                    <Link to='/topics/props-v-state'>Props vs State</Link>
                 </li>
             </ul>
 
             <hr />
 
-            <Route path='/topics/rendering' component={Topic} />
-            <Route path='/topics/components' component={Topic} />
-            <Route path='/topics/props-v-state' component={Topic} />
+            <Route path='/topics/:topicId' component={Topic} />
         </div>
     )
 }
